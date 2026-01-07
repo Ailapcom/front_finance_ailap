@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance AILAP - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white mb-4">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <div class="logo-placeholder me-2">
+                    <i class="bi bi-graph-up"></i>
+                </div>
+                <span class="navbar-brand mb-0 h1">Finance AILAP</span>
+            </div>
+            
+            <div class="ms-auto d-flex align-items-center">
+                <span class="me-3">Hola de nuevo, usuario</span>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Mi Perfil</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Configuración</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Balance General -->
+            <div class="col-lg-8 mb-4">
+                <div class="card balance-card">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-4">Balance de Finanzas</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <p class="mb-1 opacity-75">Ingresos Mensuales</p>
+                                        <h3 class="mb-0">$45,250.00</h3>
+                                    </div>
+                                    <div class="income-badge">
+                                        <i class="bi bi-arrow-up"></i> +12%
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <p class="mb-1 opacity-75">Gastos Mensuales</p>
+                                        <h3 class="mb-0">$28,640.00</h3>
+                                    </div>
+                                    <div class="expense-badge">
+                                        <i class="bi bi-arrow-down"></i> -8%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="my-3 opacity-25">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="mb-0">Balance Neto</h6>
+                            <h4 class="mb-0">$16,610.00</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráfico de Gastos -->
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4">Resumen de Movimientos</h5>
+                        <div class="row text-center">
+                            <div class="col-md-3 mb-3">
+                                <i class="bi bi-wallet2 fs-2 text-primary"></i>
+                                <p class="mb-1 mt-2">Total Transacciones</p>
+                                <h5>234</h5>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <i class="bi bi-credit-card fs-2 text-success"></i>
+                                <p class="mb-1 mt-2">Ingresos</p>
+                                <h5>89</h5>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <i class="bi bi-cart fs-2 text-danger"></i>
+                                <p class="mb-1 mt-2">Gastos</p>
+                                <h5>145</h5>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <i class="bi bi-clock-history fs-2 text-warning"></i>
+                                <p class="mb-1 mt-2">Pendientes</p>
+                                <h5>12</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Registro Rápido -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Registro Rápido</h5>
+                        <button class="quick-action-btn" data-bs-toggle="modal" data-bs-target="#ingresoModal">
+                            <i class="bi bi-plus-circle text-success fs-4"></i>
+                            <p class="mb-0 mt-2">Registrar Ingreso</p>
+                        </button>
+                        <button class="quick-action-btn" data-bs-toggle="modal" data-bs-target="#gastoModal">
+                            <i class="bi bi-dash-circle text-danger fs-4"></i>
+                            <p class="mb-0 mt-2">Registrar Gasto</p>
+                        </button>
+                        <button class="quick-action-btn" data-bs-toggle="modal" data-bs-target="#pagoModal">
+                            <i class="bi bi-clock text-warning fs-4"></i>
+                            <p class="mb-0 mt-2">Pago Pendiente</p>
+                        </button>
+                        <button class="quick-action-btn" data-bs-toggle="modal" data-bs-target="#transferenciaModal">
+                            <i class="bi bi-arrow-left-right text-primary fs-4"></i>
+                            <p class="mb-0 mt-2">Transferencia</p>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Balance de Inversiones -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="card-title mb-0">Balance de Inversiones</h5>
+                            <span class="badge bg-success">+15.3%</span>
+                        </div>
+                        <h3 class="text-primary mb-4">$128,450.00</h3>
+                        
+                        <h6 class="mb-3">Posiciones Principales</h6>
+                        
+                        <div class="investment-item">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6 class="mb-1">AAPL</h6>
+                                    <small class="text-muted">Apple Inc.</small>
+                                </div>
+                                <div class="text-end">
+                                    <h6 class="mb-1 text-success">+8.5%</h6>
+                                    <small class="text-muted">$45,200</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="investment-item">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6 class="mb-1">MSFT</h6>
+                                    <small class="text-muted">Microsoft Corp.</small>
+                                </div>
+                                <div class="text-end">
+                                    <h6 class="mb-1 text-success">+12.3%</h6>
+                                    <small class="text-muted">$38,900</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="investment-item">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6 class="mb-1">GOOGL</h6>
+                                    <small class="text-muted">Alphabet Inc.</small>
+                                </div>
+                                <div class="text-end">
+                                    <h6 class="mb-1 text-success">+6.8%</h6>
+                                    <small class="text-muted">$32,150</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="investment-item">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6 class="mb-1">ETF SPY</h6>
+                                    <small class="text-muted">S&P 500 ETF</small>
+                                </div>
+                                <div class="text-end">
+                                    <h6 class="mb-1 text-success">+4.2%</h6>
+                                    <small class="text-muted">$12,200</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-outline-primary w-100 mt-3">Ver Portafolio Completo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Registrar Ingreso -->
+    <div class="modal fade" id="ingresoModal" tabindex="-1" aria-labelledby="ingresoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="ingresoModalLabel"><i class="bi bi-plus-circle me-2"></i>Registrar Ingreso</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="ingresoMonto" class="form-label">Monto</label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" id="ingresoMonto" placeholder="0.00" step="0.01">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ingresoCategoria" class="form-label">Categoría</label>
+                        <select class="form-select" id="ingresoCategoria">
+                            <option selected>Seleccionar categoría</option>
+                            <option value="salario">Salario</option>
+                            <option value="freelance">Freelance</option>
+                            <option value="inversiones">Inversiones</option>
+                            <option value="negocio">Negocio</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ingresoDescripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="ingresoDescripcion" rows="2" placeholder="Descripción del ingreso"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ingresoFecha" class="form-label">Fecha</label>
+                        <input type="date" class="form-control" id="ingresoFecha">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ingresoCuenta" class="form-label">Cuenta</label>
+                        <select class="form-select" id="ingresoCuenta">
+                            <option selected>Seleccionar cuenta</option>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="banco1">Banco Principal</option>
+                            <option value="banco2">Banco Secundario</option>
+                            <option value="paypal">PayPal</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" onclick="registrarIngreso()">Registrar Ingreso</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Registrar Gasto -->
+    <div class="modal fade" id="gastoModal" tabindex="-1" aria-labelledby="gastoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="gastoModalLabel"><i class="bi bi-dash-circle me-2"></i>Registrar Gasto</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="gastoMonto" class="form-label">Monto</label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" id="gastoMonto" placeholder="0.00" step="0.01">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gastoCategoria" class="form-label">Categoría</label>
+                        <select class="form-select" id="gastoCategoria">
+                            <option selected>Seleccionar categoría</option>
+                            <option value="alimentacion">Alimentación</option>
+                            <option value="transporte">Transporte</option>
+                            <option value="vivienda">Vivienda</option>
+                            <option value="servicios">Servicios</option>
+                            <option value="entretenimiento">Entretenimiento</option>
+                            <option value="salud">Salud</option>
+                            <option value="educacion">Educación</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gastoDescripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="gastoDescripcion" rows="2" placeholder="Descripción del gasto"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gastoFecha" class="form-label">Fecha</label>
+                        <input type="date" class="form-control" id="gastoFecha">
+                    </div>
+                    <div class="mb-3">
+                        <label for="gastoCuenta" class="form-label">Cuenta</label>
+                        <select class="form-select" id="gastoCuenta">
+                            <option selected>Seleccionar cuenta</option>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="banco1">Banco Principal</option>
+                            <option value="banco2">Banco Secundario</option>
+                            <option value="tarjeta">Tarjeta de Crédito</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" onclick="registrarGasto()">Registrar Gasto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pago Pendiente -->
+    <div class="modal fade" id="pagoModal" tabindex="-1" aria-labelledby="pagoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-dark">
+                    <h5 class="modal-title" id="pagoModalLabel"><i class="bi bi-clock me-2"></i>Registrar Pago Pendiente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="pagoMonto" class="form-label">Monto</label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" id="pagoMonto" placeholder="0.00" step="0.01">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pagoConcepto" class="form-label">Concepto</label>
+                        <input type="text" class="form-control" id="pagoConcepto" placeholder="Ej: Renta, Servicios, Tarjeta">
+                    </div>
+                    <div class="mb-3">
+                        <label for="pagoDescripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="pagoDescripcion" rows="2" placeholder="Detalles adicionales"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pagoFechaVencimiento" class="form-label">Fecha de Vencimiento</label>
+                        <input type="date" class="form-control" id="pagoFechaVencimiento">
+                    </div>
+                    <div class="mb-3">
+                        <label for="pagoPrioridad" class="form-label">Prioridad</label>
+                        <select class="form-select" id="pagoPrioridad">
+                            <option value="baja">Baja</option>
+                            <option value="media" selected>Media</option>
+                            <option value="alta">Alta</option>
+                            <option value="urgente">Urgente</option>
+                        </select>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="pagoRecurrente">
+                        <label class="form-check-label" for="pagoRecurrente">
+                            Pago recurrente
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" onclick="registrarPago()">Registrar Pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Transferencia -->
+    <div class="modal fade" id="transferenciaModal" tabindex="-1" aria-labelledby="transferenciaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="transferenciaModalLabel"><i class="bi bi-arrow-left-right me-2"></i>Registrar Transferencia</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="transferenciaMonto" class="form-label">Monto</label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" id="transferenciaMonto" placeholder="0.00" step="0.01">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="transferenciaOrigen" class="form-label">Cuenta Origen</label>
+                        <select class="form-select" id="transferenciaOrigen">
+                            <option selected>Seleccionar cuenta origen</option>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="banco1">Banco Principal</option>
+                            <option value="banco2">Banco Secundario</option>
+                            <option value="paypal">PayPal</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="transferenciaDestino" class="form-label">Cuenta Destino</label>
+                        <select class="form-select" id="transferenciaDestino">
+                            <option selected>Seleccionar cuenta destino</option>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="banco1">Banco Principal</option>
+                            <option value="banco2">Banco Secundario</option>
+                            <option value="inversiones">Cuenta de Inversiones</option>
+                            <option value="ahorros">Cuenta de Ahorros</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="transferenciaDescripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="transferenciaDescripcion" rows="2" placeholder="Motivo de la transferencia"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="transferenciaFecha" class="form-label">Fecha</label>
+                        <input type="date" class="form-control" id="transferenciaFecha">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="registrarTransferencia()">Realizar Transferencia</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
